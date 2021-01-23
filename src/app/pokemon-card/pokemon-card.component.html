@@ -1,0 +1,6 @@
+<mat-card *ngIf="pokemonDetails" [routerLink]="['/pokemon/' + pokemonDetails.id]">
+    <mat-card-title>#{{ pokemonDetails.id }} - {{ pokemonDetails.name }}</mat-card-title>
+    <mat-card-content>
+        <img [src]="pokemonDetails.sprites.front_default" [alt]="pokemonDetails.name">
+    </mat-card-content>
+</mat-card>
