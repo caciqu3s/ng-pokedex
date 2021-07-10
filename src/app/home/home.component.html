@@ -1,1 +1,12 @@
-<app-pokemon-card *ngFor='let pokemon of (response$ | async).results' [pokemon]="pokemon"></app-pokemon-card>
+<div class="home__card-wrapper">
+    <div *ngFor='let pokemon of (response$ | async).results' class="home__card-item">
+        <app-pokemon-card [pokemon]="pokemon"></app-pokemon-card>
+    </div>
+</div>
+
+<div class="home__footer-wrapper">
+    <button mat-raised-button color="accent" (click)="getPokemon(previous)" *ngIf="previous">Previous</button>
+    <button mat-raised-button color="primary" (click)="getPokemon(next)" *ngIf="next">Next</button>
+</div>
+
+

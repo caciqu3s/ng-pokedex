@@ -1,0 +1,12 @@
+.home__card-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+
+    .home__card-item {
+        margin: 20px;
+    }
+}
+
+.home__footer-wrapper {
+    text-align: center;
+}

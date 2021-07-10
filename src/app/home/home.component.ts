@@ -10,15 +10,20 @@ import { PokemonsListResponse } from '../shared/pokemons-list-response';
 })
 export class HomeComponent implements OnInit {
   response$: Observable<PokemonsListResponse>;
+  next: string;
+  previous: string;
 
   constructor(private pokemonService: PokemonService) { }
 
   ngOnInit(): void {
-    this.getPokemon()
+    this.getPokemon();
   }
 
-  getPokemon() {
-    this.response$ = this.pokemonService.getPokemon();
+  getPokemon(url?: string) {
+    this.response$ = this.pokemonService.getPokemon(url);
+    this.response$.subscribe(response => {
+      this.next = response.next;
+      this.previous = response.previous;
+    });
   }
-
 }
